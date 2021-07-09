@@ -33,9 +33,10 @@ LIMIT 1;
 -------------------------------------------- Extra - May be difficult
 /* Your goal is to write a query that serves as an employee sales report.
 This query should return the employeeID, the employee's first and last name, the name of each product, how many of that product they sold */
-SELECT  e.EmployeeID, e.FirstName, e.LastName, p.name, s.Quantity FROM sales AS s
+SELECT  e.EmployeeID, e.FirstName, e.LastName, p.name AS PRODUCT, s.Quantity FROM sales AS s
 INNER JOIN employees AS e ON e.EmployeeID=s.EmployeeID 
 INNER JOIN products AS p ON p.productid=s.productid
+GROUP BY E.EMPLOYEEID, P.NAME
 ORDER BY e.EmployeeID;
 
 
